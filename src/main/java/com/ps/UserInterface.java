@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class UserInterface {
     // variables
+    private static String name;
+    private static String drinkFlavor;
     private static Scanner commandScanner = new Scanner(System.in);
     private static Scanner inputScanner = new Scanner(System.in);
     private static Sandwich sandwich;
@@ -17,7 +19,7 @@ public class UserInterface {
     private static int chipsCounter = 0;
     private static List<Drink> drinks = new ArrayList<>();
     private static String breadType;
-    private static double sandwichPrice = 0;
+    private static double orderPrice = 0;
     public static void display(){
         showMainMenu();
     }
@@ -46,7 +48,7 @@ public class UserInterface {
     private static void processStartAnOrder(){
        int startCommand;
        do{
-           System.out.println("choose an option to start your order:");
+           System.out.println("choose an option for your order:");
            System.out.println("1. Add a Sandwich");
            System.out.println("2. Add a drink");
            System.out.println("3. Add chips");
@@ -57,13 +59,12 @@ public class UserInterface {
                    processAddASandwich();
                    break;
                case 2:
-                   //process add a drink
+                   processAddADrink();
                    break;
                case 3:
                    processAddChips();
                case 4:
-                   // display the order
-                   // your total is
+                   processFinishTheOrder();
                    System.out.println("Thank you for choosing our Deli, See you next time!");
                    break;
                default:
@@ -87,18 +88,18 @@ public class UserInterface {
 
 
             if(size==4)
-                sandwichPrice += sandwichPrice + Sandwich.Size.SMALL.getPrice();
+                orderPrice += orderPrice + Sandwich.Size.SMALL.getPrice();
             else if(size ==8)
-                sandwichPrice += sandwichPrice + Sandwich.Size.MEDIUM.getPrice();
+                orderPrice += orderPrice + Sandwich.Size.MEDIUM.getPrice();
             else if(size ==12)
-                sandwichPrice += sandwichPrice + Sandwich.Size.SMALL.getPrice();
+                orderPrice += orderPrice + Sandwich.Size.SMALL.getPrice();
 
             System.out.println("Available bread types:");
             processDispalyBreadTypes();
             inputScanner.nextLine();
             System.out.println("What type of bread?");
             breadType = inputScanner.nextLine();
-            System.out.println("do you wanted toasted?");
+            System.out.println("do you wanted toasted? 1.yes 2. no");
             int toastedCommand = inputScanner.nextInt();
             boolean toastedChoice;
             if(toastedCommand == 1)
@@ -123,7 +124,7 @@ public class UserInterface {
                     toppingChoice = findToppingByName(toppingChoiceName.toLowerCase());
                     if (toppingChoice != null) {
                         double toppingPrice = toppingChoice.calculatePrice(size);
-                        sandwichPrice += toppingPrice;
+                        orderPrice += toppingPrice;
                         toppingChoices.add(toppingChoice);  // Add to selected toppings list
 
                         System.out.println(toppingChoice.getName() + " added. Price: $" + toppingPrice);
@@ -158,10 +159,26 @@ public class UserInterface {
         while(sandwichCommand!= 3);
     }
     private static void processAddADrink(){
-        System.out.println("whats your drink size?");
-        System.out.println("1.Small");
-        System.out.println("2.Medium");
-        System.out.println("3.Large");
+        int sizeChoice;
+        do{
+            System.out.println("What's your drink size?");
+            System.out.println("1. Small ($1.50)");
+            System.out.println("2. Medium ($2.00)");
+            System.out.println("3. Large ($2.50)");
+            System.out.println("4. No more drinks");
+
+            sizeChoice = commandScanner.nextInt();
+            System.out.println("Whats your flavor?");
+            for (Drink.flavors flavor : Drink.flavors.values()) {
+                System.out.println(flavor);
+            }
+            drinkFlavor = inputScanner.nextLine();
+            Drink drink;
+            drinks.add(drink = new Drink (sizeChoice, drinkFlavor));
+            orderPrice += drink.getPrice();
+
+        }
+        while(sizeChoice !=4 );
 
     }
     private static void processAddChips(){
@@ -203,7 +220,7 @@ public class UserInterface {
 
             sandwichNumber++;
         }
-        System.out.println("your total is: " + sandwichPrice);
+        System.out.println("your total is: " + orderPrice);
     }
     public static void processDispalyBreadTypes(){
         for (Sandwich.BreadTypes bread : Sandwich.BreadTypes.values()) {
