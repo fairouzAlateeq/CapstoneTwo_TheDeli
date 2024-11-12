@@ -3,28 +3,35 @@ package com.ps.classes;
 import java.util.List;
 
 public class Sandwich implements Product{
-    private enum BreadTypes {
+    public enum BreadTypes {
         WHITE, WHEAT, RYE, WRAP
     }
-    private enum Size {
+    public enum Size {
         SMALL(4), MEDIUM(8), LARGE(12);
-        private int price;
+        private double price;
 
         // Constructor
-        Size(int price) {
-            this.price = price;
+        Size(int size) {
+            if(size == 4)
+                this.price = 5.50;
+            if(size ==8)
+                this.price = 7.00;
+            if(size==12)
+                this.price = 8.50;
         }
-        public int getPrice() {
-            return price;
+
+        public double getPrice() {
+            return this.price;
         }
     }
     private List<Topping> topping;
     private boolean isToasted;
-
+    private String breadType;
     //Consturctor
-    public Sandwich(List<Topping> topping, boolean isToasted) {
+    public Sandwich(List<Topping> topping, boolean isToasted, String breadType) {
         this.topping = topping;
         this.isToasted = isToasted;
+        this.breadType = breadType;
     }
 
     public List<Topping> getTopping() {
@@ -46,5 +53,13 @@ public class Sandwich implements Product{
     @Override
     public double calculatePrice(int numberOfSandwiches) {
         return 0;
+    }
+
+    public String getBreadType() {
+        return breadType;
+    }
+
+    public void setBreadType(String breadType) {
+        this.breadType = breadType;
     }
 }

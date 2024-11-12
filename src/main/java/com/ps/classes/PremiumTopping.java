@@ -46,7 +46,7 @@ public class PremiumTopping extends Topping{
         return price;
     }
 
-    private double getMeatPrice(int size) {
+    public double getMeatPrice(int size) {
         switch (size) {
             case 4: return 1.00;
             case 8: return 2.00;
@@ -55,7 +55,7 @@ public class PremiumTopping extends Topping{
         }
     }
 
-    private double getCheesePrice(int size) {
+    public double getCheesePrice(int size) {
         switch (size) {
             case 4:
                 return 0.30;
@@ -66,5 +66,9 @@ public class PremiumTopping extends Topping{
             default:
                 return 0;
         }
+    }
+
+    public static List<PremiumTopping> getPremiumToppings(){
+        return premiumToppings;
     }
 }

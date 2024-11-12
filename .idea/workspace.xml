@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="984c1287-d9de-4bf4-ad19-db3499686f14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Drink.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/PremiumTopping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/RegularTopping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Topping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/PremiumTopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/PremiumTopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/RegularTopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/RegularTopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,5 +62,16 @@
       <updated>1731010074627</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
