@@ -3,7 +3,7 @@ package com.ps.classes;
 public class Drink implements Product{
      int size;
      double price;
-     String flavor;
+     flavors flavor;
      public enum flavors {
          STRAWBERRY, LEMON, ORIGINAL
      }
@@ -12,14 +12,16 @@ public class Drink implements Product{
         return 5.5;
     }
 
-    public Drink(int size, String flavor) {
+    public Drink(int size, flavors flavor) {
+         this.size = size;
+        this.flavor = flavor;
         if(size == 1)
             this.price = 2.00;
         else if(size == 2)
             this.price = 2.50;
         else if(size == 3)
             this.price = 3.00;
-        this.flavor = flavor;
+
     }
 
     public double getPrice() {

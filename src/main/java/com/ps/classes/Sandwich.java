@@ -26,9 +26,9 @@ public class Sandwich implements Product{
     }
     private List<Topping> topping;
     private boolean isToasted;
-    private String breadType;
+    private BreadTypes breadType;
     //Consturctor
-    public Sandwich(List<Topping> topping, boolean isToasted, String breadType) {
+    public Sandwich(List<Topping> topping, boolean isToasted, BreadTypes breadType) {
         this.topping = topping;
         this.isToasted = isToasted;
         this.breadType = breadType;
