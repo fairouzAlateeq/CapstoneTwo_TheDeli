@@ -24,4 +24,9 @@ public class Chips implements Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public Chips.Types getChipsType() {
+        return type;
+    }
+
 }

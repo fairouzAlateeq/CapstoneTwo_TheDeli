@@ -26,6 +26,8 @@ public class UserInterface {
     private static boolean extraCheeseChoice;
     private static double totalPrice = 0.0;
     private static int size;
+    public static Order order;
+
     public static void display(){
         showMainMenu();
     }
@@ -86,15 +88,16 @@ public class UserInterface {
 
         do{
             // to not enter again.
-            if (sandwichCommand  == 3) {
+            if (sandwichCommand  == 4) {
                 System.out.println("No more sandwiches added.");
                 break;
             }
-            System.out.println("what size? 4\", 8\" or 12\"");
+
             do{
+                System.out.println("what size? 4\", 8\" or 12\"");
                 System.out.println("Pick a size: ");
                 size = inputScanner.nextInt();
-            }while(size != 4 && size != 8 && size !=12);
+            } while(size != 4 && size != 8 && size !=12);
 
             // bread choice
             System.out.println("Available bread types:");
@@ -256,6 +259,9 @@ public class UserInterface {
         }
     }
     private static void processFinishTheOrder(){
+        System.out.println("Whats your name? ");
+        name = inputScanner.nextLine();
+
         currentDateTime = LocalDateTime.now();
         System.out.println("your order details: ");
         System.out.println(currentDateTime);
@@ -283,9 +289,20 @@ public class UserInterface {
             sandwichNumber++;
         }
         //calculate total
-        totalPrice = sandwich.calculatePrice();
+        for(Sandwich sandwich: sandwiches) {
+            totalPrice += sandwich.calculatePrice();
+        }
+        for(Drink drink:drinks){
+            totalPrice += drink.calculatePrice();
+        }
+        for(Chips bagOfChips: chips){
+            totalPrice += bagOfChips.calculatePrice();
+        }
+
         System.out.println("your total is: " + totalPrice);
-        FileManager.saveReceipt(currentDateTime.toString());
+        order = new Order(name,sandwiches,chips,drinks);
+        Receipt receipt = new Receipt(name,currentDateTime, sandwiches, drinks, chips, totalPrice);
+        FileManager.saveReceipt(receipt);
     }
     public static void processDispalyBreadTypes(){
         for (Sandwich.BreadTypes bread : Sandwich.BreadTypes.values()) {

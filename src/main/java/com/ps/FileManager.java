@@ -7,17 +7,23 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class FileManager {
-        public static void saveReceipt(String receiptDetails) {
-            // Generate timestamp in the format yyyyMMdd-HHmmss
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-            String fileName = "receipt_" + timestamp + ".txt";
+    private static LocalDateTime currentDateTime;
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-                writer.write(receiptDetails);
-                writer.newLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public static void saveReceipt(Receipt receipt) {
+
+        // Format file name based on order date and time
+        currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+
+        String fileName = "receipt-" + receipt.getOrderDate().format(formatter) + ".txt";
+
+        // Write receipt information to file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(receipt.formatReceipt());
+            writer.flush();
+        } catch (IOException e) {
+            System.out.println("An error occurred while saving the receipt: " + e.getMessage());
         }
+    }
     }
 

@@ -32,5 +32,19 @@ public class Drink implements Product{
         this.price = price;
     }
 
+    public int getSize() {
+        return size;
+    }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public flavors getFlavor() {
+        return flavor;
+    }
+
+    public void setFlavor(flavors flavor) {
+        this.flavor = flavor;
+    }
 }

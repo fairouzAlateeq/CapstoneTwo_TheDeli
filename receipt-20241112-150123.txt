@@ -1,0 +1,18 @@
+Order Date: 2024-11-12 15:01:23
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 0
+  Bread Type: RYE
+  Toppings: [com.ps.classes.RegularTopping@5387f9e0]
+  Toasted: Yes
+ Sandwich 2:
+  Size: 0
+  Bread Type: WHITE
+  Toppings: [com.ps.classes.RegularTopping@5387f9e0]
+  Toasted: No
+Drinks:
+ - 1 LEMON
+--------------------------
+Total Price: $2.00
