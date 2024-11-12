@@ -2,9 +2,12 @@ package com.ps.classes;
 
 public class Chips implements Product {
     double price;
-    String type;
+    public enum Types {
+        BUGLES, KETTLE
+    }
+    Types type;
 
-    public Chips(double price, String type) {
+    public Chips(Types type) {
         this.price = 1.50;
         this.type = type;
     }

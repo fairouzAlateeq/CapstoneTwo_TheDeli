@@ -16,7 +16,7 @@ public class UserInterface {
     private static Sandwich sandwich;
     private static List<Sandwich> sandwiches = new ArrayList<>();
     private static List<Topping> toppingChoices = new ArrayList<>();
-    private static int chipsCounter = 0;
+    private static List<Chips> chips = new ArrayList<>();
     private static List<Drink> drinks = new ArrayList<>();
     private static String breadType;
     private static double orderPrice = 0;
@@ -150,7 +150,7 @@ public class UserInterface {
                     processStartAnOrder();
                     break;
                 case 3:
-                    sandwich = new Sandwich(toppingChoices, toastedChoice, breadType);
+                    sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType));
                     sandwiches.add(sandwich);
                     processFinishTheOrder();
                     break;
@@ -174,7 +174,7 @@ public class UserInterface {
             }
             drinkFlavor = inputScanner.nextLine();
             Drink drink;
-            drinks.add(drink = new Drink (sizeChoice, drinkFlavor));
+            drinks.add(drink = new Drink (sizeChoice, Drink.flavors.valueOf(drinkFlavor.toUpperCase())));
             orderPrice += drink.getPrice();
 
         }
@@ -182,7 +182,29 @@ public class UserInterface {
 
     }
     private static void processAddChips(){
-        chipsCounter++;
+        String chipsChoice;
+        int chipsCommand;
+        do{
+            System.out.println("What chips do you want? ");
+            for (Chips.Types type : Chips.Types.values()){
+                System.out.println(type);
+            }
+            chipsChoice = inputScanner.nextLine();
+            System.out.println("Another one? 1.yes 2.no");
+            chipsCommand = commandScanner.nextInt();
+            switch (chipsCommand){
+                case 1:
+                    processAddChips();
+                    break;
+                case 2:
+                    processStartAnOrder();
+                    break;
+                default:
+                    System.out.println(" 1 or 2 only. ");
+            }
+        }
+        while(chipsCommand != 2);
+
     }
     private static void processDisplayToppings(){
         System.out.println("Premium Toppings:");
@@ -216,7 +238,7 @@ public class UserInterface {
 
             String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
             System.out.println("Your sandwich is: " + toasted);
-            System.out.println("your bread type: " + sandwich.getBreadType());
+            System.out.println("your bread type: " + Sandwich.BreadTypes.valueOf(breadType));
 
             sandwichNumber++;
         }
