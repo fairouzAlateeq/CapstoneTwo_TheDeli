@@ -31,7 +31,7 @@ public class RegularTopping extends Topping{
     }
 
     @Override
-    public double calculatePrice(int size) {
+    public double calculatePrice() {
         return 0.0;
     }
 

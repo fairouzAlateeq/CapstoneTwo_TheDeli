@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PremiumTopping extends Topping{
-
+    private int size;
     public static List<PremiumTopping> premiumToppings = Arrays.asList(
             new PremiumTopping("Steak", "Meat"),
             new PremiumTopping("Ham", "Meat"),
@@ -21,9 +21,12 @@ public class PremiumTopping extends Topping{
     public PremiumTopping(String name, String type) {
         super(name, type, 0); // Base price is 0, actual price is calculated by size
     }
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     @Override
-    public double calculatePrice(int size) {
+    public double calculatePrice() {
         double price = 0;
         switch (getName().toLowerCase()) {
             case "steak":
@@ -33,20 +36,21 @@ public class PremiumTopping extends Topping{
             case "chicken":
             case "bacon":
                 // Meat pricing
-                price = getMeatPrice(size);
+                price = getMeatPrice();
                 break;
             case "american":
             case "provolone":
             case "cheddar":
             case "swiss":
                 // Cheese pricing
-                price = getCheesePrice(size);
+                price = getCheesePrice();
                 break;
         }
         return price;
     }
 
-    public double getMeatPrice(int size) {
+    public double getMeatPrice() {
+
         switch (size) {
             case 4: return 1.00;
             case 8: return 2.00;
@@ -55,14 +59,14 @@ public class PremiumTopping extends Topping{
         }
     }
 
-    public double getCheesePrice(int size) {
+    public double getCheesePrice() {
         switch (size) {
             case 4:
-                return 0.30;
+                return 0.75;
             case 8:
-                return 0.60;
+                return 1.50;
             case 12:
-                return 0.90;
+                return 2.25;
             default:
                 return 0;
         }

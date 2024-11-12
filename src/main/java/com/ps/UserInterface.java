@@ -1,25 +1,31 @@
 package com.ps;
 import com.ps.classes.*;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
     // variables
+    private static LocalDateTime currentDateTime;
     private static String name;
     private static String drinkFlavor;
     private static Scanner commandScanner = new Scanner(System.in);
     private static Scanner inputScanner = new Scanner(System.in);
     private static Sandwich sandwich;
     private static List<Sandwich> sandwiches = new ArrayList<>();
-    private static List<Topping> toppingChoices = new ArrayList<>();
+    private static List<Topping> toppingChoices;
     private static List<Chips> chips = new ArrayList<>();
     private static List<Drink> drinks = new ArrayList<>();
     private static String breadType;
-    private static double orderPrice = 0;
+    private static int extraMeatCommand;
+    private static boolean extraMeatChoice;
+    private static int extraCheeseCommand;
+    private static boolean extraCheeseChoice;
+    private static double totalPrice = 0.0;
+    private static int size;
     public static void display(){
         showMainMenu();
     }
@@ -77,35 +83,36 @@ public class UserInterface {
     private static void processAddASandwich(){
         int sandwichCommand = 0;
         Topping toppingChoice;
-        int size;
-        //double price = order.get base price
+
         do{
+            // to not enter again.
+            if (sandwichCommand  == 3) {
+                System.out.println("No more sandwiches added.");
+                break;
+            }
             System.out.println("what size? 4\", 8\" or 12\"");
             do{
                 System.out.println("Pick a size: ");
                 size = inputScanner.nextInt();
             }while(size != 4 && size != 8 && size !=12);
 
-
-            if(size==4)
-                orderPrice += orderPrice + Sandwich.Size.SMALL.getPrice();
-            else if(size ==8)
-                orderPrice += orderPrice + Sandwich.Size.MEDIUM.getPrice();
-            else if(size ==12)
-                orderPrice += orderPrice + Sandwich.Size.SMALL.getPrice();
-
+            // bread choice
             System.out.println("Available bread types:");
             processDispalyBreadTypes();
             inputScanner.nextLine();
             System.out.println("What type of bread?");
-            breadType = inputScanner.nextLine();
+            breadType = inputScanner.nextLine().toUpperCase();
+
+            //toasted?
             System.out.println("do you wanted toasted? 1.yes 2. no");
             int toastedCommand = inputScanner.nextInt();
+            // toasted to true or false
             boolean toastedChoice;
             if(toastedCommand == 1)
                 toastedChoice = true;
             else toastedChoice = false;
 
+            //starting to add toppings
             int toppingCommand;
             do {
 
@@ -114,7 +121,6 @@ public class UserInterface {
                 toppingCommand = commandScanner.nextInt();
 
                 if (toppingCommand == 1 ) {
-                    processDisplayToppings();  // Display available toppings
                     inputScanner.nextLine();
                     System.out.println("Enter topping name:");
 
@@ -123,11 +129,25 @@ public class UserInterface {
                     // Check if topping is in PremiumTopping or RegularTopping
                     toppingChoice = findToppingByName(toppingChoiceName.toLowerCase());
                     if (toppingChoice != null) {
-                        double toppingPrice = toppingChoice.calculatePrice(size);
-                        orderPrice += toppingPrice;
-                        toppingChoices.add(toppingChoice);  // Add to selected toppings list
-
+                        double toppingPrice = toppingChoice.calculatePrice();
+                        toppingChoices = new ArrayList<>();
+                        toppingChoices.add(toppingChoice);  // Add to toppings list
                         System.out.println(toppingChoice.getName() + " added. Price: $" + toppingPrice);
+
+                        // handling extra
+                        System.out.println("Would you like extra Meat? 1. yes 2. no");
+                        extraMeatCommand = commandScanner.nextInt();
+                        if(extraMeatCommand==1) {
+                            extraMeatChoice = true;
+                        }
+                        else extraMeatChoice = false;
+                        System.out.println("Extra cheese? ");
+                        extraCheeseCommand = commandScanner.nextInt();
+                        if(extraCheeseCommand==1) {
+                            extraCheeseChoice = true;
+                        }
+                        else extraCheeseChoice = false;
+
                     } else {
                         System.out.println("Invalid topping choice.");
                     }
@@ -136,11 +156,16 @@ public class UserInterface {
                 }
             } while (toppingCommand != 2 );
 
-            // toast?
+            // saving
+
+            sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice);
+            sandwiches.add(sandwich);
+
             System.out.println("Another Sandwich? 1. yes");
             System.out.println("2. Main Menu");
             System.out.println("3. Finish the order");
             sandwichCommand = commandScanner.nextInt();
+
             switch (sandwichCommand){
                 //case 1 processAddASandwich //case 2 maiMenu // case 3 finish the order
                 case 1:
@@ -150,8 +175,6 @@ public class UserInterface {
                     processStartAnOrder();
                     break;
                 case 3:
-                    sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType));
-                    sandwiches.add(sandwich);
                     processFinishTheOrder();
                     break;
             }
@@ -168,17 +191,31 @@ public class UserInterface {
             System.out.println("4. No more drinks");
 
             sizeChoice = commandScanner.nextInt();
+
+            // so the flavors don't show
+            if (sizeChoice == 4) {
+                System.out.println("No more drinks added.");
+                break;
+            }
+
             System.out.println("Whats your flavor?");
             for (Drink.flavors flavor : Drink.flavors.values()) {
                 System.out.println(flavor);
             }
-            drinkFlavor = inputScanner.nextLine();
-            Drink drink;
-            drinks.add(drink = new Drink (sizeChoice, Drink.flavors.valueOf(drinkFlavor.toUpperCase())));
-            orderPrice += drink.getPrice();
 
+            drinkFlavor = inputScanner.nextLine().trim().toUpperCase();
+
+            //save
+            Drink drink;
+            try {
+                drink = new Drink(sizeChoice, Drink.flavors.valueOf(drinkFlavor));
+                drinks.add(drink);
+                System.out.println(drinkFlavor + " added. Price: $" + drink.getPrice());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid flavor. Please choose a valid option.");
+            }
         }
-        while(sizeChoice !=4 );
+        while(sizeChoice !=4);
 
     }
     private static void processAddChips(){
@@ -189,7 +226,9 @@ public class UserInterface {
             for (Chips.Types type : Chips.Types.values()){
                 System.out.println(type);
             }
-            chipsChoice = inputScanner.nextLine();
+            chipsChoice = inputScanner.nextLine().trim().toUpperCase();
+            Chips chipsBag = new Chips(Chips.Types.valueOf(chipsChoice));
+
             System.out.println("Another one? 1.yes 2.no");
             chipsCommand = commandScanner.nextInt();
             switch (chipsCommand){
@@ -217,15 +256,16 @@ public class UserInterface {
         }
     }
     private static void processFinishTheOrder(){
-        LocalDateTime currentDateTime = LocalDateTime.now();
+        currentDateTime = LocalDateTime.now();
         System.out.println("your order details: ");
         System.out.println(currentDateTime);
-        System.out.println("your sandwich has: ");
+        System.out.println("your sandwiches : ");
         int sandwichNumber = 1;
         for (Sandwich sandwich : sandwiches) {
             System.out.println("\nSandwich " + sandwichNumber + ":");
-            System.out.println("Bread type: " + breadType);
-            System.out.println("Your sandwich has:");
+            System.out.println("Your sandwich:");
+            System.out.println("Size: " + sandwich.getSize());
+            System.out.println("your bread type: " + sandwich.getBreadType());
 
             List<Topping> toppings = sandwich.getTopping();
             if (toppings.isEmpty()) {
@@ -238,11 +278,14 @@ public class UserInterface {
 
             String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
             System.out.println("Your sandwich is: " + toasted);
-            System.out.println("your bread type: " + Sandwich.BreadTypes.valueOf(breadType));
+
 
             sandwichNumber++;
         }
-        System.out.println("your total is: " + orderPrice);
+        //calculate total
+        totalPrice = sandwich.calculatePrice();
+        System.out.println("your total is: " + totalPrice);
+        FileManager.saveReceipt(currentDateTime.toString());
     }
     public static void processDispalyBreadTypes(){
         for (Sandwich.BreadTypes bread : Sandwich.BreadTypes.values()) {
@@ -263,5 +306,4 @@ public class UserInterface {
         }
         return null;  // Return null if no topping found
     }
-
 }

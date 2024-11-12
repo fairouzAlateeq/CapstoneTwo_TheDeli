@@ -13,8 +13,8 @@ public class Chips implements Product {
     }
 
     @Override
-    public double calculatePrice(int amount) {
-        return 0;
+    public double calculatePrice() {
+        return 1.50;
     }
 
     public double getPrice() {

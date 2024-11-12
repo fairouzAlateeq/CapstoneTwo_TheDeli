@@ -2,7 +2,7 @@ package com.ps.classes;
 
 import java.util.List;
 
-public class Order {
+public class Order implements Product{
     private String customerName;
     private List<Sandwich> sandwiches;
     private List<Chips> chips;
@@ -45,5 +45,23 @@ public class Order {
 
     public void setDrinks(List<Drink> drinks) {
         this.drinks = drinks;
+    }
+
+    public double calculatePrice() {
+        double total = 0.0;
+
+        for (Sandwich sandwich : sandwiches) {
+            total += sandwich.calculatePrice();
+        }
+
+        for (Drink drink : drinks) {
+            total += drink.calculatePrice();
+        }
+
+        for (Chips chip : chips) {
+            total += chip.calculatePrice();
+        }
+
+        return total;
     }
 }

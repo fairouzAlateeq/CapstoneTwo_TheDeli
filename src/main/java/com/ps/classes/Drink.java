@@ -8,13 +8,7 @@ public class Drink implements Product{
          STRAWBERRY, LEMON, ORIGINAL
      }
     @Override
-    public double calculatePrice(int size) {
-        return 5.5;
-    }
-
-    public Drink(int size, flavors flavor) {
-         this.size = size;
-        this.flavor = flavor;
+    public double calculatePrice() {
         if(size == 1)
             this.price = 2.00;
         else if(size == 2)
@@ -22,6 +16,12 @@ public class Drink implements Product{
         else if(size == 3)
             this.price = 3.00;
 
+        return this.price;
+    }
+
+    public Drink(int size, flavors flavor) {
+         this.size = size;
+        this.flavor = flavor;
     }
 
     public double getPrice() {
