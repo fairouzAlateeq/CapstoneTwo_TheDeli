@@ -18,4 +18,4 @@ The Deli Order Management System is a Java-based console application that simula
 
 ### How to Use:
 - Start by launching the App:
-  ![App Launch](C:\Users\fairo\OneDrive\Desktop\Yearup%20courses\Java\java-development\CapstoneTwo_TheDeli\CapstoneTwo_TheDeli\CodeSS\1.png)
+  ![App Launch](1.png)
