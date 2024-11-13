@@ -15,7 +15,13 @@ public class FileManager {
         currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
+        // to save it in the  Receitpts folder
+        String directoryPath = "CapstoneTwo_TheDeli/Receipts/";
         String fileName = "receipt-" + receipt.getOrderDate().format(formatter) + ".txt";
+        java.io.File directory = new java.io.File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
         // Write receipt information to file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {

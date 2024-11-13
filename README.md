@@ -16,6 +16,14 @@ The Deli Order Management System is a Java-based console application that simula
 - UI class: Manages the user interface and guides the user through order options.
 - FileManager class: saves the receipt and creates a file for it.
 
+### What you need to know: 
+
+- Order Date is collected from the system at the time if placing an order
+- 
 ### How to Use:
 - Start by launching the App:
-  ![App Launch](![1.png](CodeSS%2F1.png))
+  ![App Launch](CodeSS/AppLaunch.png)
+- Add a Sandwich to your order from the main menu
+  ![App Launch](CodeSS/MainMenu.png)
+- Then, customize your sandwich 
+  ![Sandwich customization](CodeSS/SandwichDetails.png)
