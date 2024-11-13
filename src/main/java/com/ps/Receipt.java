@@ -8,6 +8,7 @@ import com.ps.classes.Drink;
 import com.ps.classes.Chips;
 import com.ps.classes.Topping;
 
+
 public class Receipt {
 
     private LocalDateTime orderDate;
@@ -55,7 +56,18 @@ public class Receipt {
                     receiptText.setLength(receiptText.length() - 2);
                 }
                 receiptText.append("\n");
+                boolean hasExtraMeat = sandwich.isExtraMeat();
+                receiptText.append("  Extra Meat: ").append(hasExtraMeat ? "Yes" : "No").append("\n");
+                if (hasExtraMeat) {
+                    receiptText.append("  Extra Meat Price: $").append(String.format("%.2f", sandwich.getExtraMeatPrice())).append("\n");
+                }
 
+
+                boolean hasExtraCheese = sandwich.isExtraCheese();
+                receiptText.append("  Extra Cheese: ").append(hasExtraCheese ? "Yes" : "No").append("\n");
+                if (hasExtraCheese) {
+                    receiptText.append("  Extra Cheese Price: $").append(String.format("%.2f", sandwich.getExtraCheesePrice())).append("\n");
+                }
                 receiptText.append("  Toasted: ").append(sandwich.isToasted() ? "Yes" : "No").append("\n");
                 sandwichNumber++;
             }
@@ -77,9 +89,11 @@ public class Receipt {
             }
         }
 
+
         receiptText.append("--------------------------\n");
         receiptText.append("Total Price: $").append(String.format("%.2f", totalPrice)).append("\n");
         return receiptText.toString();
+
     }
 
     public LocalDateTime getOrderDate() {

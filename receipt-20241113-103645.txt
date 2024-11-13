@@ -1,0 +1,11 @@
+Order Date: 2024-11-13 10:36:45
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Tomato
+  Toasted: Yes
+--------------------------
+Total Price: $5.50

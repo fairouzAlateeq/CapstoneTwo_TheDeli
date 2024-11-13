@@ -1,0 +1,11 @@
+Order Date: 2024-11-13 10:46:17
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: RYE
+  Toppings: Chicken
+  Toasted: Yes
+--------------------------
+Total Price: $6.30

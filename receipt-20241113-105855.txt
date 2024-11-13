@@ -1,0 +1,13 @@
+Order Date: 2024-11-13 10:58:55
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WHITE
+  Toppings: Tomato
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $5.50

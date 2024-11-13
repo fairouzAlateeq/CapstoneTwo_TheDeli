@@ -7,9 +7,10 @@ public class Sandwich implements Product{
     private boolean isToasted;
     private boolean extraMeat;
     private boolean extraCheese;
-    private double extraMeatPrice;
-    private double extraCheesePrice;
-    double basePrice = 0;
+    double extraMeatPrice;
+    double extraCheesePrice;
+    double basePrice;
+
     private double price;
 
     int size;
@@ -72,7 +73,7 @@ public class Sandwich implements Product{
             extraCheesePrice = 0.60;
             extraMeatPrice = 1.00;
         }
-        else if(size == 12) {
+        else {
             basePrice = 8.50;
             extraCheesePrice = 0.90;
             extraMeatPrice = 1.50;
@@ -97,5 +98,36 @@ public class Sandwich implements Product{
         return totalPrice; // Return the total price of the sandwich
     }
 
+    public boolean isExtraMeat() {
+        return extraMeat;
+    }
+
+    public void setExtraMeat(boolean extraMeat) {
+        this.extraMeat = extraMeat;
+    }
+
+    public boolean isExtraCheese() {
+        return extraCheese;
+    }
+
+    public void setExtraCheese(boolean extraCheese) {
+        this.extraCheese = extraCheese;
+    }
+
+    public double getExtraMeatPrice() {
+        return extraMeatPrice;
+    }
+
+    public void setExtraMeatPrice(double extraMeatPrice) {
+        this.extraMeatPrice = extraMeatPrice;
+    }
+
+    public double getExtraCheesePrice() {
+        return extraCheesePrice;
+    }
+
+    public void setExtraCheesePrice(double extraCheesePrice) {
+        this.extraCheesePrice = extraCheesePrice;
+    }
 }
 
