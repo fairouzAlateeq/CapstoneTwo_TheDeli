@@ -1,0 +1,15 @@
+Order Date: 2024-11-13 12:36:33
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: RYE
+  Toppings: Tomato
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+Drinks:
+ - 1 LEMON
+--------------------------
+Total Price: $7.50

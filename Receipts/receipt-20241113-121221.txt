@@ -1,0 +1,14 @@
+Order Date: 2024-11-13 12:12:21
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: RYE
+  Toppings: Chicken
+  Extra Meat: Yes
+  Extra Meat Price: $0.00
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $1.50

@@ -1,0 +1,15 @@
+Order Date: 2024-11-13 12:56:41
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: RYE
+  Toppings: Swiss
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+Chips:
+ - KETTLE
+--------------------------
+Total Price: $6.25

@@ -2,6 +2,7 @@ package com.ps.classes;
 
 public class Chips implements Product {
     double price;
+    int numberOfBags;
     public enum Types {
         BUGLES, KETTLE
     }
@@ -14,7 +15,7 @@ public class Chips implements Product {
 
     @Override
     public double calculatePrice() {
-        return 1.50;
+        return 1.50 *numberOfBags;
     }
 
     public double getPrice() {

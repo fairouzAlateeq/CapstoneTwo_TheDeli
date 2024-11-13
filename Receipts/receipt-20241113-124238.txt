@@ -1,0 +1,13 @@
+Order Date: 2024-11-13 12:42:38
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Chicken
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $1.00

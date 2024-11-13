@@ -54,29 +54,31 @@ public class UserInterface {
     }
 
     private static void processStartAnOrder(){
-       int startCommand;
+       int startCommand = 0;
        do{
-           System.out.println("choose an option for your order:");
-           System.out.println("1. Add a Sandwich");
-           System.out.println("2. Add a drink");
-           System.out.println("3. Add chips");
-           System.out.println("4. Finish the order");
-           startCommand = commandScanner.nextInt();
-           switch (startCommand){
-               case 1:
-                   processAddASandwich();
-                   break;
-               case 2:
-                   processAddADrink();
-                   break;
-               case 3:
-                   processAddChips();
-               case 4:
-                   processFinishTheOrder();
-                   System.out.println("Thank you for choosing our Deli, See you next time!");
-                   break;
-               default:
-                   System.out.println("we only have 3 options");
+           if(startCommand != 4) {
+               System.out.println("choose an option for your order:");
+               System.out.println("1. Add a Sandwich");
+               System.out.println("2. Add a drink");
+               System.out.println("3. Add chips");
+               System.out.println("4. Finish the order");
+               startCommand = commandScanner.nextInt();
+               switch (startCommand) {
+                   case 1:
+                       processAddASandwich();
+                       break;
+                   case 2:
+                       processAddADrink();
+                       break;
+                   case 3:
+                       processAddChips();
+                   case 4:
+                       processFinishTheOrder();
+                       System.out.println("Thank you for choosing our Deli, See you next time!");
+                       return;
+                   default:
+                       System.out.println("we only have 3 options");
+               }
            }
        }
        while(startCommand!=4);
@@ -169,7 +171,7 @@ public class UserInterface {
 
             System.out.println("Another Sandwich? 1. yes");
             System.out.println("2. Main Menu");
-            System.out.println("3. Finish the order");
+
             sandwichCommand = commandScanner.nextInt();
 
             switch (sandwichCommand){
@@ -180,12 +182,9 @@ public class UserInterface {
                 case 2:
                     processStartAnOrder();
                     break;
-                case 3:
-                    processFinishTheOrder();
-                    break;
             }
         }
-        while(sandwichCommand!= 3);
+        while(sandwichCommand!= 2);
     }
 
     private static void processAddADrink(){
@@ -227,34 +226,62 @@ public class UserInterface {
 
     }
 
-    private static void processAddChips(){
-        String chipsChoice;
-        int chipsCommand;
-        do{
-            System.out.println("What chips do you want? ");
-            for (Chips.Types type : Chips.Types.values()){
-                System.out.println(type);
-            }
-            chipsChoice = inputScanner.nextLine().trim().toUpperCase();
-            Chips chipsBag = new Chips(Chips.Types.valueOf(chipsChoice));
-
-            System.out.println("Another one? 1.yes 2.no");
-            chipsCommand = commandScanner.nextInt();
-            switch (chipsCommand){
-                case 1:
-                    processAddChips();
-                    break;
-                case 2:
-                    processStartAnOrder();
-                    break;
-                default:
-                    System.out.println(" 1 or 2 only. ");
-            }
+//    private static void processAddChips(){
+//        String chipsChoice;
+//        int chipsCommand;
+//        do{
+//            System.out.println("What chips do you want? ");
+//            for (Chips.Types type : Chips.Types.values()){
+//                System.out.println(type);
+//            }
+//            chipsChoice = inputScanner.nextLine().trim().toUpperCase();
+//            Chips chipsBag = new Chips(Chips.Types.valueOf(chipsChoice));
+//
+//            System.out.println("Another one? 1.yes 2.no");
+//            chipsCommand = commandScanner.nextInt();
+//            switch (chipsCommand){
+//                case 1:
+//                    processAddChips();
+//                    break;
+//                case 2:
+//                    processStartAnOrder();
+//                    break;
+//                default:
+//                    System.out.println(" 1 or 2 only. ");
+//            }
+//        }
+//        while(chipsCommand != 2);
+//
+//    }
+private static void processAddChips(){
+    String chipsChoice;
+    int chipsCommand;
+    do{
+        System.out.println("What chips do you want? ");
+        for (Chips.Types type : Chips.Types.values()){
+            System.out.println(type);
         }
-        while(chipsCommand != 2);
+        chipsChoice = inputScanner.nextLine().trim().toUpperCase();
+        Chips chipsBag = new Chips(Chips.Types.valueOf(chipsChoice));
+        chips.add(chipsBag);  // Add chips to the list
+        System.out.println(chipsChoice + " chips added.");
 
+        System.out.println("Another one? 1.yes 2.no");
+        chipsCommand = commandScanner.nextInt();
+        inputScanner.nextLine(); // Consume the newline character after nextInt()
+        switch (chipsCommand){
+            case 1:
+                processAddChips();
+                break;
+            case 2:
+                processStartAnOrder();
+                break;
+            default:
+                System.out.println("1 or 2 only.");
+        }
     }
-
+    while(chipsCommand != 2);
+}
     private static void processDisplayToppings(){
         System.out.println("Premium Toppings:");
         for (PremiumTopping topping : PremiumTopping.getPremiumToppings()) {
@@ -314,8 +341,9 @@ public class UserInterface {
 
     order = new Order(name, sandwiches, chips, drinks);
     Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
-    FileManager.saveReceipt(receipt);
+        FileManager.saveReceipt(receipt);
 }
+
     public static void processDispalyBreadTypes(){
         for (Sandwich.BreadTypes bread : Sandwich.BreadTypes.values()) {
             System.out.println(bread);
