@@ -34,12 +34,13 @@ public class Sandwich implements Product{
     }
 
     //Consturctor
-    public Sandwich(List<Topping> topping, boolean isToasted, BreadTypes breadType, boolean extraMeat, boolean extraCheese) {
+    public Sandwich(List<Topping> topping, boolean isToasted, BreadTypes breadType, boolean extraMeat, boolean extraCheese, int size) {
         this.topping = topping;
         this.isToasted = isToasted;
         this.breadType = breadType;
         this.extraMeat = extraMeat;
         this.extraCheese = extraCheese;
+        this.size = size;
     }
 
     public List<Topping> getTopping() {
@@ -60,11 +61,6 @@ public class Sandwich implements Product{
 
     @Override
     public double calculatePrice() {
-        double totalPrice = basePrice;
-
-        for (Topping topping : topping) {
-            totalPrice += topping.calculatePrice(); // Sum up all the topping prices
-        }
 
         if(size == 4) {
             basePrice = 5.50;
@@ -84,6 +80,11 @@ public class Sandwich implements Product{
 
         // Calculate total price by adding the base price with the additional costs for extra meat and extra cheese
 
+        double totalPrice = basePrice;
+
+        for (Topping topping : topping) {
+            totalPrice += topping.calculatePrice(); // Sum up all the topping prices
+        }
 
         if(this.extraMeat) {
             totalPrice += extraMeatPrice; // Add extra meat cost if selected

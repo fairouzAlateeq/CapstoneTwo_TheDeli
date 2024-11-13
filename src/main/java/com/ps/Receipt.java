@@ -6,7 +6,7 @@ import java.util.List;
 import com.ps.classes.Sandwich;
 import com.ps.classes.Drink;
 import com.ps.classes.Chips;
-import com.ps.classes.Order;
+import com.ps.classes.Topping;
 
 public class Receipt {
 
@@ -43,7 +43,19 @@ public class Receipt {
                 receiptText.append(" Sandwich ").append(sandwichNumber).append(":\n");
                 receiptText.append("  Size: ").append(sandwich.getSize()).append("\n");
                 receiptText.append("  Bread Type: ").append(sandwich.getBreadType()).append("\n");
-                receiptText.append("  Toppings: ").append(sandwich.getTopping()).append("\n"); // Assuming `getToppings` returns a formatted list
+                // for topping not return memory locations
+                // receiptText.append("  Toppings: ").append(sandwich.getTopping()).append("\n");
+
+                receiptText.append("  Toppings: ");
+                for (Topping topping : sandwich.getTopping()) {
+                    receiptText.append(topping.getName()).append(", ");
+                }
+                // Remove trailing comma and space
+                if (!sandwich.getTopping().isEmpty()) {
+                    receiptText.setLength(receiptText.length() - 2);
+                }
+                receiptText.append("\n");
+
                 receiptText.append("  Toasted: ").append(sandwich.isToasted() ? "Yes" : "No").append("\n");
                 sandwichNumber++;
             }

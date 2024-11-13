@@ -1,0 +1,11 @@
+Order Date: 2024-11-12 15:54:32
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 0
+  Bread Type: WRAP
+  Toppings: [com.ps.classes.PremiumTopping@4b9af9a9]
+  Toasted: Yes
+--------------------------
+Total Price: $0.00

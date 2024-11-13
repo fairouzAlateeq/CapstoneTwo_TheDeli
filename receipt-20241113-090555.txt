@@ -1,0 +1,13 @@
+Order Date: 2024-11-13 09:05:55
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Chicken
+  Toasted: No
+Drinks:
+ - 2 LEMON
+--------------------------
+Total Price: $8.50

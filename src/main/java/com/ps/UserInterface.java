@@ -133,9 +133,10 @@ public class UserInterface {
                     toppingChoice = findToppingByName(toppingChoiceName.toLowerCase());
                     if (toppingChoice != null) {
                         double toppingPrice = toppingChoice.calculatePrice();
+                        totalPrice += toppingPrice;
                         toppingChoices = new ArrayList<>();
                         toppingChoices.add(toppingChoice);  // Add to toppings list
-                        System.out.println(toppingChoice.getName() + " added. Price: $" + toppingPrice);
+                        System.out.println(toppingChoice.getName() + " added");
 
                         // handling extra
                         System.out.println("Would you like extra Meat? 1. yes 2. no");
@@ -161,7 +162,7 @@ public class UserInterface {
 
             // saving
 
-            sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice);
+            sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice, size);
             sandwiches.add(sandwich);
 
             System.out.println("Another Sandwich? 1. yes");
@@ -213,6 +214,7 @@ public class UserInterface {
             try {
                 drink = new Drink(sizeChoice, Drink.flavors.valueOf(drinkFlavor));
                 drinks.add(drink);
+                totalPrice += drink.getPrice();
                 System.out.println(drinkFlavor + " added. Price: $" + drink.getPrice());
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid flavor. Please choose a valid option.");
@@ -284,6 +286,11 @@ public class UserInterface {
 
             String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
             System.out.println("Your sandwich is: " + toasted);
+            System.out.println("your drinks are: ");
+
+            for(Drink drink:drinks){
+                System.out.println(drink);
+            }
 
 
             sandwichNumber++;

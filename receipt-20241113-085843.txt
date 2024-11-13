@@ -1,0 +1,18 @@
+Order Date: 2024-11-13 08:58:43
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 8
+  Bread Type: RYE
+  Toppings: Chicken
+  Toasted: No
+ Sandwich 2:
+  Size: 12
+  Bread Type: WRAP
+  Toppings: Bacon
+  Toasted: Yes
+Drinks:
+ - 3 ORIGINAL
+--------------------------
+Total Price: $18.50
