@@ -7,6 +7,13 @@ public class Drink implements Product{
      public enum flavors {
          STRAWBERRY, LEMON, ORIGINAL
      }
+
+    public Drink(int size, flavors flavor) {
+        this.size = size;
+        this.flavor = flavor;
+    }
+
+
     @Override
     public double calculatePrice() {
         if(size == 1)
@@ -19,10 +26,7 @@ public class Drink implements Product{
         return this.price;
     }
 
-    public Drink(int size, flavors flavor) {
-         this.size = size;
-        this.flavor = flavor;
-    }
+
 
     public double getPrice() {
         return this.price;

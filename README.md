@@ -47,3 +47,16 @@ The Deli Order Management System is a Java-based console application that simula
 - Then, customize your sandwich 
 
   ![Sandwich customization](CodeSS/SandwichDetails.png)
+
+- Go back to main menu when you finish with your sandwiches & add chips or drinks
+
+  ![Add Drink](CodeSS/AddDrink.png)
+
+- Choose a size and a flavor or a type for chips
+
+  ![Drink Info](CodeSS/DrinkInfo.png)
+
+- Add as many drinks as you want then go back to the main menu
+- Finish the order and Enter your name
+
+  ![Finish Order](CodeSS/FinishOrder.png)

@@ -15,7 +15,7 @@ public class Chips implements Product {
 
     @Override
     public double calculatePrice() {
-        return 1.50 *numberOfBags;
+        return 1.50 * numberOfBags;
     }
 
     public double getPrice() {

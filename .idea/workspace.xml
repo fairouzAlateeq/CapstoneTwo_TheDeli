@@ -5,31 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="984c1287-d9de-4bf4-ad19-db3499686f14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-121221.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-121224.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-121416.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-121418.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-123617.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-123626.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-123633.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124238.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124446.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124505.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124754.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124759.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124948.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124952.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-124956.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-125637.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-125641.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-125647.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-125831.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-125835.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Drink.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +45,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\fairo\OneDrive\Desktop\Yearup courses\Java\java-development\CapstoneTwo_TheDeli\CapstoneTwo_TheDeli\Receipts" />
       <recent name="C:\Users\fairo\OneDrive\Desktop\Yearup courses\Java\java-development\CapstoneTwo_TheDeli\CapstoneTwo_TheDeli\CodeSS" />
+      <recent name="C:\Users\fairo\OneDrive\Desktop\Yearup courses\Java\java-development\CapstoneTwo_TheDeli\CapstoneTwo_TheDeli\Receipts" />
       <recent name="C:\Users\fairo\OneDrive\Desktop\Yearup courses\Java\java-development\CapstoneTwo_TheDeli\CapstoneTwo_TheDeli" />
     </key>
   </component>
