@@ -15,5 +15,7 @@ The Deli Order Management System is a Java-based console application that simula
 - Product interface: has the calculatePrice() method. 
 - UI class: Manages the user interface and guides the user through order options.
 - FileManager class: saves the receipt and creates a file for it.
-- 
+
 ### How to Use:
+- Start by launching the App:
+  ![App Launch](C:\Users\fairo\OneDrive\Desktop\Yearup%20courses\Java\java-development\CapstoneTwo_TheDeli\CapstoneTwo_TheDeli\CodeSS\1.png)
