@@ -53,40 +53,41 @@ public class UserInterface {
         while(mainMenuCommand != 2);
     }
 
-    private static void processStartAnOrder(){
-       int startCommand = 0;
-       do{
-           if(startCommand != 4) {
-               System.out.println("choose an option for your order:");
-               System.out.println("1. Add a Sandwich");
-               System.out.println("2. Add a drink");
-               System.out.println("3. Add chips");
-               System.out.println("4. Finish the order");
-               startCommand = commandScanner.nextInt();
-               switch (startCommand) {
-                   case 1:
-                       processAddASandwich();
-                       break;
-                   case 2:
-                       processAddADrink();
-                       break;
-                   case 3:
-                       processAddChips();
-                   case 4:
-                       processFinishTheOrder();
-                       System.out.println("Thank you for choosing our Deli, See you next time!");
-                       return;
-                   default:
-                       System.out.println("we only have 3 options");
-               }
-           }
-       }
-       while(startCommand!=4);
+    private static void processStartAnOrder() {
+        int startCommand = 0;
+            do {
+                System.out.println("choose an option for your order:");
+                System.out.println("1. Add a Sandwich");
+                System.out.println("2. Add a drink");
+                System.out.println("3. Add chips");
+                System.out.println("4. Finish the order");
+                startCommand = commandScanner.nextInt();
+                switch (startCommand) {
+                    case 1:
+                        processAddASandwich();
+                        break;
+                    case 2:
+                        processAddADrink();
+                        break;
+                    case 3:
+                        processAddChips();
+                        break;
+                    case 4:
+                        processFinishTheOrder();
+                        System.out.println("Thank you for choosing our Deli, See you next time!");
+                        break;
+                    default:
+                        System.out.println("we only have 3 options");
+                }
+            }
+            while (startCommand != 4);
     }
+
 
     private static void processAddASandwich(){
         int sandwichCommand = 0;
         Topping toppingChoice;
+        toppingChoices = new ArrayList<>();
 
         do{
             // to not enter again.
@@ -138,7 +139,7 @@ public class UserInterface {
 
                        totalPrice += toppingPrice;
 
-                        toppingChoices = new ArrayList<>();
+
                         toppingChoices.add(toppingChoice);  // Add to toppings list
                         System.out.println(toppingChoice.getName() + " added");
 
@@ -253,7 +254,7 @@ public class UserInterface {
 //        while(chipsCommand != 2);
 //
 //    }
-private static void processAddChips(){
+    private static void processAddChips(){
     String chipsChoice;
     int chipsCommand;
     do{
@@ -293,56 +294,111 @@ private static void processAddChips(){
         }
     }
 
+    private static void processFinishTheOrder() {
+        totalPrice = 0.0;
 
-    private static void processFinishTheOrder(){
-    // Reset totalPrice to zero before recalculating
-    totalPrice = 0.0;
+        System.out.println("What's your name? ");
+        name = inputScanner.nextLine();
 
-    System.out.println("What's your name? ");
-    name = inputScanner.nextLine();
+        currentDateTime = LocalDateTime.now();
+        System.out.println("Your order details: ");
+        System.out.println(currentDateTime);
+        System.out.println("Your sandwiches: ");
 
-    currentDateTime = LocalDateTime.now();
-    System.out.println("Your order details: ");
-    System.out.println(currentDateTime);
-    System.out.println("Your sandwiches: ");
-    int sandwichNumber = 1;
-    for (Sandwich sandwich : sandwiches) {
-        System.out.println("\nSandwich " + sandwichNumber + ":");
-        System.out.println("Size: " + sandwich.getSize());
-        System.out.println("Bread type: " + sandwich.getBreadType());
+        int sandwichNumber = 1;
+        for (Sandwich sandwich : sandwiches) {
+            System.out.println("\nSandwich " + sandwichNumber + ":");
+            System.out.println("Size: " + sandwich.getSize());
+            System.out.println("Bread type: " + sandwich.getBreadType());
 
-        List<Topping> toppings = sandwich.getTopping();
-        if (toppings.isEmpty()) {
-            System.out.println("No toppings added.");
-        } else {
-            for (Topping topping : toppings) {
-                System.out.println("- " + topping.getName());
+            List<Topping> toppings = sandwich.getToppings();
+            if (toppings.isEmpty()) {
+                System.out.println("No toppings added.");
+            } else {
+                for (Topping topping : toppings) {
+                    System.out.println("- " + topping.getName());
+                }
             }
+
+            String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
+            System.out.println("Toasting: " + toasted);
+
+            sandwichNumber++;
+
+            // Add sandwich price to total
+            totalPrice += sandwich.calculatePrice();
         }
 
-        String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
-        System.out.println("Toasting: " + toasted);
+        // Add drinks price to total
+        for (Drink drink : drinks) {
+            totalPrice += drink.calculatePrice();
+        }
 
-        sandwichNumber++;
-    }
+        // Add chips price to total
+        for (Chips bagOfChips : chips) {
+            totalPrice += bagOfChips.calculatePrice();
+        }
 
-    // Calculate the total price once
-    for (Sandwich sandwich : sandwiches) {
-        totalPrice += sandwich.calculatePrice();
-    }
-    for (Drink drink : drinks) {
-        totalPrice += drink.calculatePrice();
-    }
-    for (Chips bagOfChips : chips) {
-        totalPrice += bagOfChips.calculatePrice();
-    }
+        System.out.println("Your total is: $" + totalPrice);
 
-    System.out.println("Your total is: $" + totalPrice);
-
-    order = new Order(name, sandwiches, chips, drinks);
-    Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
+        order = new Order(name, sandwiches, chips, drinks);
+        Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
         FileManager.saveReceipt(receipt);
-}
+
+        System.out.println("Thank you for choosing our Deli! See you next time!");
+
+        System.exit(0);
+    }
+//    private static void processFinishTheOrder() {
+//        // Reset totalPrice to zero before recalculating
+//        totalPrice = 0.0;
+//
+//        System.out.println("What's your name? ");
+//        name = inputScanner.nextLine();
+//
+//        currentDateTime = LocalDateTime.now();
+//        System.out.println("Your order details: ");
+//        System.out.println(currentDateTime);
+//        System.out.println("Your sandwiches: ");
+//        int sandwichNumber = 1;
+//        for (Sandwich sandwich : sandwiches) {
+//            System.out.println("\nSandwich " + sandwichNumber + ":");
+//            System.out.println("Size: " + sandwich.getSize());
+//            System.out.println("Bread type: " + sandwich.getBreadType());
+//
+//            List<Topping> toppings = sandwich.getTopping();
+//            if (toppings.isEmpty()) {
+//                System.out.println("No toppings added.");
+//            } else {
+//                for (Topping topping : toppings) {
+//                    System.out.println("- " + topping.getName());
+//                }
+//            }
+//
+//            String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
+//            System.out.println("Toasting: " + toasted);
+//
+//            sandwichNumber++;
+//
+//        }
+//    // Calculate the total price once
+//    for (Sandwich sandwich : sandwiches) {
+//        totalPrice += sandwich.calculatePrice();
+//    }
+//    for (Drink drink : drinks) {
+//        totalPrice += drink.calculatePrice();
+//    }
+//    for (Chips bagOfChips : chips) {
+//        totalPrice += bagOfChips.calculatePrice();
+//    }
+//
+//    System.out.println("Your total is: $" + totalPrice);
+//
+//    order = new Order(name, sandwiches, chips, drinks);
+//    Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
+//    FileManager.saveReceipt(receipt);
+//        System.exit(0);
+//}
 
     public static void processDispalyBreadTypes(){
         for (Sandwich.BreadTypes bread : Sandwich.BreadTypes.values()) {

@@ -48,11 +48,11 @@ public class Receipt {
                 // receiptText.append("  Toppings: ").append(sandwich.getTopping()).append("\n");
 
                 receiptText.append("  Toppings: ");
-                for (Topping topping : sandwich.getTopping()) {
+                for (Topping topping : sandwich.getToppings()) {
                     receiptText.append(topping.getName()).append(", ");
                 }
                 // Remove trailing comma and space
-                if (!sandwich.getTopping().isEmpty()) {
+                if (!sandwich.getToppings().isEmpty()) {
                     receiptText.setLength(receiptText.length() - 2);
                 }
                 receiptText.append("\n");

@@ -1,0 +1,18 @@
+Order Date: 2024-11-13 14:46:58
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Chicken
+  Extra Meat: No
+  Extra Cheese: Yes
+  Extra Cheese Price: $0.00
+  Toasted: No
+Drinks:
+ - 2 LEMON
+Chips:
+ - BUGLES
+--------------------------
+Total Price: $7.80

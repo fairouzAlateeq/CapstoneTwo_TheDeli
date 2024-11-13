@@ -3,7 +3,7 @@ package com.ps.classes;
 import java.util.List;
 
 public class Sandwich implements Product{
-    private List<Topping> topping;
+    private List<Topping> toppings;
     private boolean isToasted;
     private boolean extraMeat;
     private boolean extraCheese;
@@ -35,8 +35,8 @@ public class Sandwich implements Product{
     }
 
     //Consturctor
-    public Sandwich(List<Topping> topping, boolean isToasted, BreadTypes breadType, boolean extraMeat, boolean extraCheese, int size) {
-        this.topping = topping;
+    public Sandwich(List<Topping> toppings, boolean isToasted, BreadTypes breadType, boolean extraMeat, boolean extraCheese, int size) {
+        this.toppings = toppings;
         this.isToasted = isToasted;
         this.breadType = breadType;
         this.extraMeat = extraMeat;
@@ -44,12 +44,12 @@ public class Sandwich implements Product{
         this.size = size;
     }
 
-    public List<Topping> getTopping() {
-        return topping;
+    public List<Topping> getToppings() {
+        return toppings;
     }
 
     public void setTopping(List<Topping> topping) {
-        this.topping = topping;
+        this.toppings = toppings;
     }
 
     public boolean isToasted() {
@@ -62,49 +62,61 @@ public class Sandwich implements Product{
 
     @Override
     public double calculatePrice() {
-        double totalPrice = basePrice;
+        double basePrice = 0.0;
+        switch (size) {
+            case 4:
+                basePrice = 5.0;
+                break;
+            case 8:
+                basePrice = 7.5;
+                break;
+            case 12:
+                basePrice = 10.0;
+                break;
+            default:
+                break;
+        }
 
-        for (Topping topping : topping) {
-            if (topping instanceof PremiumTopping) {
-                ((PremiumTopping) topping).setSize(size);
+        // Add price for toppings
+        for (Topping topping : toppings) {
+            basePrice += topping.calculatePrice();
+        }
+
+        // Additional cost for extra meat and extra cheese based on size
+        if (extraMeat) {
+            switch (size) {
+                case 4:
+                    basePrice += 0.50;
+                    break;
+                case 8:
+                    basePrice += 1.00;
+                    break;
+                case 12:
+                    basePrice += 1.50;
+                    break;
+                default:
+                    break;
             }
-            totalPrice += topping.calculatePrice();
+        }
+        if (extraCheese) {
+            switch (size) {
+                case 4:
+                    basePrice += 0.30;
+                    break;
+                case 8:
+                    basePrice += 0.60;
+                    break;
+                case 12:
+                    basePrice += 0.90;
+                    break;
+                default:
+                    break;
+            }
         }
 
-        if(size == 4) {
-            basePrice = 5.50;
-            extraCheesePrice = 0.30;
-            extraMeatPrice = 0.50;
-        }
-        else if(size == 8) {
-            basePrice = 7.00;
-            extraCheesePrice = 0.60;
-            extraMeatPrice = 1.00;
-        }
-        else {
-            basePrice = 8.50;
-            extraCheesePrice = 0.90;
-            extraMeatPrice = 1.50;
-        }
-
-        // Calculate total price by adding the base price with the additional costs for extra meat and extra cheese
-
-
-//
-//        for (Topping topping : topping) {
-//            totalPrice += topping.calculatePrice(); // Sum up all the topping prices
-//        }
-
-        if(this.extraMeat) {
-            totalPrice += extraMeatPrice; // Add extra meat cost if selected
-        }
-
-        if(this.extraCheese) {
-            totalPrice += extraCheesePrice; // Add extra cheese cost if selected
-        }
-
-        return totalPrice; // Return the total price of the sandwich
+        return basePrice;
     }
+  //
 
     public boolean isExtraMeat() {
         return extraMeat;

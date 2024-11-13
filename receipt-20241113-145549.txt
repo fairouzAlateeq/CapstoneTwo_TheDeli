@@ -1,0 +1,13 @@
+Order Date: 2024-11-13 14:55:49
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WHEAT
+  Toppings: Chicken, Bacon, Lettuce, Onion
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $5.00

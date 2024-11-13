@@ -1,0 +1,15 @@
+Order Date: 2024-11-13 14:14:53
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Bacon
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+Chips:
+ - KETTLE
+--------------------------
+Total Price: $6.50
