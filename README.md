@@ -31,9 +31,11 @@ The Deli Order Management System is a Java-based console application that simula
 ```
 
 - Saves Receipts in this format:
+<br>
   ![Multiple Sandwich Receipt Format](CodeSS/MultipleSandwichReceipt.png)
 - 
 ### How to Use:
+<br>
 - Start by launching the App:
   ![App Launch](CodeSS/AppLaunch.png)
 - Add a Sandwich to your order from the main menu
