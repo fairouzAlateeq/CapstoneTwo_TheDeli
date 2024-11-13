@@ -18,7 +18,19 @@ The Deli Order Management System is a Java-based console application that simula
 
 ### What you need to know: 
 
-- Order Date is collected from the system at the time if placing an order
+- Order Date is collected from the system at the time if placing an order 
+``` 
+ private static LocalDateTime currentDateTime;
+
+    public static void saveReceipt(Receipt receipt) {
+
+        // Format file name based on order date and time
+        currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        }
+```
+- Saves Receipts in this format:
+  ![Multiple Sandwich Receipt Format](CodeSS/MultipleSandwichReceipt.png)
 - 
 ### How to Use:
 - Start by launching the App:
