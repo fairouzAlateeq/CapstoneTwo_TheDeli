@@ -29,6 +29,7 @@ The Deli Order Management System is a Java-based console application that simula
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         }
 ```
+
 - Saves Receipts in this format:
   ![Multiple Sandwich Receipt Format](CodeSS/MultipleSandwichReceipt.png)
 - 
