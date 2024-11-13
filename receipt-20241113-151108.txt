@@ -1,0 +1,20 @@
+Order Date: 2024-11-13 15:11:08
+Customer Name: Joe
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: RYE
+  Toppings: Chicken, Ketchup
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+ Sandwich 2:
+  Size: 8
+  Bread Type: WRAP
+  Toppings: Bacon, Lettuce
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $12.50

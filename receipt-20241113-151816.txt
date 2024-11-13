@@ -1,0 +1,13 @@
+Order Date: 2024-11-13 15:18:16
+Customer Name: Julia
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 8
+  Bread Type: WHITE
+  Toppings: Lettuce, Tomato, Mayo
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $7.50

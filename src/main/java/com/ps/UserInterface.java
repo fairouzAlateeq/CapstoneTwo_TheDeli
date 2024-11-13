@@ -84,23 +84,22 @@ public class UserInterface {
     }
 
 
-    private static void processAddASandwich(){
+    private static void processAddASandwich() {
         int sandwichCommand = 0;
         Topping toppingChoice;
         toppingChoices = new ArrayList<>();
 
-        do{
-            // to not enter again.
-            if (sandwichCommand  == 4) {
+        do {
+            if (sandwichCommand == 4) {
                 System.out.println("No more sandwiches added.");
                 break;
             }
 
-            do{
+            do {
                 System.out.println("what size? 4\", 8\" or 12\"");
                 System.out.println("Pick a size: ");
                 size = inputScanner.nextInt();
-            } while(size != 4 && size != 8 && size !=12);
+            } while(size != 4 && size != 8 && size != 12);
 
             // bread choice
             System.out.println("Available bread types:");
@@ -109,74 +108,56 @@ public class UserInterface {
             System.out.println("What type of bread?");
             breadType = inputScanner.nextLine().toUpperCase();
 
-            //toasted?
-            System.out.println("do you wanted toasted? 1.yes 2. no");
+            // toasted?
+            System.out.println("Do you want it toasted? 1. Yes  2. No");
             int toastedCommand = inputScanner.nextInt();
-            // toasted to true or false
-            boolean toastedChoice;
-            if(toastedCommand == 1)
-                toastedChoice = true;
-            else toastedChoice = false;
+            boolean toastedChoice = toastedCommand == 1;
 
-            //starting to add toppings
+
             int toppingCommand;
             do {
-
                 System.out.println("Would you like to add a topping? 1. Yes  2. No");
-
                 toppingCommand = commandScanner.nextInt();
 
-                if (toppingCommand == 1 ) {
+                if (toppingCommand == 1) {
                     inputScanner.nextLine();
                     System.out.println("Enter topping name:");
 
                     String toppingChoiceName = inputScanner.nextLine();
-
-                    // Check if topping is in PremiumTopping or RegularTopping
                     toppingChoice = findToppingByName(toppingChoiceName.toLowerCase());
+
                     if (toppingChoice != null) {
                         double toppingPrice = toppingChoice.calculatePrice();
-
-                       totalPrice += toppingPrice;
-
-
+                        totalPrice += toppingPrice;
                         toppingChoices.add(toppingChoice);  // Add to toppings list
                         System.out.println(toppingChoice.getName() + " added");
-
-                        // handling extra
-                        System.out.println("Would you like extra Meat? 1. yes 2. no");
-                        extraMeatCommand = commandScanner.nextInt();
-                        if(extraMeatCommand==1) {
-                            extraMeatChoice = true;
-                        }
-                        else extraMeatChoice = false;
-                        System.out.println("Extra cheese? ");
-                        extraCheeseCommand = commandScanner.nextInt();
-                        if(extraCheeseCommand==1) {
-                            extraCheeseChoice = true;
-                        }
-                        else extraCheeseChoice = false;
-
                     } else {
                         System.out.println("Invalid topping choice.");
                     }
                 } else if (toppingCommand != 2) {
                     System.out.println("Please enter 1 (Yes) or 2 (No).");
                 }
-            } while (toppingCommand != 2 );
+            } while (toppingCommand != 2);
 
-            // saving
-            // System.out.printf("Toppings: %s,toasted?%s,Bread?%s,extraMeat?%s,extraCheese?%s,%d" , toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice, size);
+            // Ask about extra meat and extra cheese only once per sandwich
+            System.out.println("Would you like extra meat? 1. Yes  2. No");
+            extraMeatCommand = commandScanner.nextInt();
+            boolean extraMeatChoice = extraMeatCommand == 1;
+
+            System.out.println("Would you like extra cheese? 1. Yes  2. No");
+            extraCheeseCommand = commandScanner.nextInt();
+            boolean extraCheeseChoice = extraCheeseCommand == 1;
+
+            // Save the sandwich
             sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice, size);
             sandwiches.add(sandwich);
 
-            System.out.println("Another Sandwich? 1. yes");
+            System.out.println("Another Sandwich? 1. Yes");
             System.out.println("2. Main Menu");
 
             sandwichCommand = commandScanner.nextInt();
 
-            switch (sandwichCommand){
-                //case 1 processAddASandwich //case 2 maiMenu // case 3 finish the order
+            switch (sandwichCommand) {
                 case 1:
                     processAddASandwich();
                     break;
@@ -184,8 +165,7 @@ public class UserInterface {
                     processStartAnOrder();
                     break;
             }
-        }
-        while(sandwichCommand!= 2);
+        } while (sandwichCommand != 2);
     }
 
     private static void processAddADrink(){
