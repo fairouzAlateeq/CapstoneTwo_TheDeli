@@ -37,7 +37,7 @@ public class UserInterface {
     public static void showMainMenu() {
         int mainMenuCommand;
         do{
-            System.out.println("Would you like to start an order?");
+            System.out.println("\033[32m" + "Would you like to start an order?" + RESET );
             System.out.println("1. Yes");
             System.out.println("2. No");
             mainMenuCommand = commandScanner.nextInt();
@@ -58,7 +58,7 @@ public class UserInterface {
     private static void processStartAnOrder() {
         int startCommand = 0;
             do {
-                System.out.println("choose an option for your order:");
+                System.out.println( "choose an option for your order:");
                 System.out.println("1. Add a Sandwich");
                 System.out.println("2. Add a drink");
                 System.out.println("3. Add chips");
