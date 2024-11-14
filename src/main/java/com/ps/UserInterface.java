@@ -159,8 +159,8 @@ public class UserInterface {
             boolean extraCheeseChoice = extraCheeseCommand == 1;
 
             // Save the sandwich
-            sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice, size);
-            sandwiches.add(sandwich);
+                sandwich = new Sandwich(toppingChoices, toastedChoice, Sandwich.BreadTypes.valueOf(breadType), extraMeatChoice, extraCheeseChoice, size);
+                sandwiches.add(sandwich);
 
             System.out.println("Another Sandwich? 1. Yes");
             System.out.println("2. Main Menu");
@@ -335,10 +335,15 @@ public class UserInterface {
 
         System.out.println("Your total is: $" + totalPrice);
 
+        System.out.println("confirm? 1. yes 2. no");
+        int confirmChoice = commandScanner.nextInt();
+        if (confirmChoice == 1) {
+            System.out.println("Thank you for choosing our Deli! See you next time!");
         order = new Order(name, sandwiches, chips, drinks);
         Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
         FileManager.saveReceipt(receipt);
-        System.out.println("Thank you for choosing our Deli! See you next time!");
+        } else System.out.println("Canceling...");
+
 
         System.exit(0);
     }
