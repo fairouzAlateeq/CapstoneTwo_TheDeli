@@ -1,0 +1,15 @@
+Order Date: 2024-11-14 09:22:47
+Customer Name: Rita
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 12
+  Bread Type: RYE
+  Toppings: Steak
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+Chips:
+ - BUGLES
+--------------------------
+Total Price: $11.50

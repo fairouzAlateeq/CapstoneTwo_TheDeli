@@ -125,10 +125,13 @@ public class UserInterface {
 
                     String toppingChoiceName = inputScanner.nextLine();
                     toppingChoice = findToppingByName(toppingChoiceName.toLowerCase());
-
+// Topping != null to set the size and add it to the toppings array
                     if (toppingChoice != null) {
                         double toppingPrice = toppingChoice.calculatePrice();
                         totalPrice += toppingPrice;
+                        if (toppingChoice instanceof PremiumTopping) {
+                            ((PremiumTopping) toppingChoice).setSize(size); // Set size based on sandwich size
+                        }
                         toppingChoices.add(toppingChoice);  // Add to toppings list
                         System.out.println(toppingChoice.getName() + " added");
                     } else {
@@ -172,9 +175,9 @@ public class UserInterface {
         int sizeChoice;
         do{
             System.out.println("What's your drink size?");
-            System.out.println("1. Small ($1.50)");
-            System.out.println("2. Medium ($2.00)");
-            System.out.println("3. Large ($2.50)");
+            System.out.println("1. Small ($2.00)");
+            System.out.println("2. Medium ($2.50)");
+            System.out.println("3. Large ($3.00)");
             System.out.println("4. No more drinks");
 
             sizeChoice = commandScanner.nextInt();
@@ -297,6 +300,7 @@ public class UserInterface {
             } else {
                 for (Topping topping : toppings) {
                     System.out.println("- " + topping.getName());
+                    System.out.println(topping.calculatePrice());
                 }
             }
 
@@ -307,16 +311,19 @@ public class UserInterface {
 
             // Add sandwich price to total
             totalPrice += sandwich.calculatePrice();
+            System.out.println("total price after sandwich: " + totalPrice);
         }
 
         // Add drinks price to total
         for (Drink drink : drinks) {
             totalPrice += drink.calculatePrice();
+            System.out.println("total price after drinks: " + totalPrice);
         }
 
         // Add chips price to total
         for (Chips bagOfChips : chips) {
             totalPrice += bagOfChips.calculatePrice();
+            System.out.println("total price after chips: " + totalPrice);
         }
 
         System.out.println("Your total is: $" + totalPrice);
@@ -324,7 +331,6 @@ public class UserInterface {
         order = new Order(name, sandwiches, chips, drinks);
         Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
         FileManager.saveReceipt(receipt);
-
         System.out.println("Thank you for choosing our Deli! See you next time!");
 
         System.exit(0);

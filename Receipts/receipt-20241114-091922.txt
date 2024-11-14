@@ -1,0 +1,15 @@
+Order Date: 2024-11-14 09:19:22
+Customer Name: John
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WHITE
+  Toppings: Steak, American
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: No
+Chips:
+ - KETTLE
+--------------------------
+Total Price: $7.00

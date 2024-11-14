@@ -65,7 +65,7 @@ public class Sandwich implements Product{
         double basePrice = 0.0;
         switch (size) {
             case 4:
-                basePrice = 5.0;
+                basePrice = 5.50;
                 break;
             case 8:
                 basePrice = 7.5;

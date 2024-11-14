@@ -1,0 +1,18 @@
+Order Date: 2024-11-14 09:49:00
+Customer Name: Jake
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: RYE
+  Toppings: Chicken
+  Extra Meat: Yes
+  Extra Meat Price: $0.00
+  Extra Cheese: No
+  Toasted: Yes
+Drinks:
+ - 2 LEMON
+Chips:
+ - BUGLES
+--------------------------
+Total Price: $10.00

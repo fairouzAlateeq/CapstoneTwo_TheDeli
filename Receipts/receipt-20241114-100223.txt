@@ -1,0 +1,14 @@
+Order Date: 2024-11-14 10:02:23
+Customer Name: Derek
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 12
+  Bread Type: WHITE
+  Toppings: Steak, Chicken
+  Extra Meat: Yes
+  Extra Meat Price: $0.00
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $17.50
