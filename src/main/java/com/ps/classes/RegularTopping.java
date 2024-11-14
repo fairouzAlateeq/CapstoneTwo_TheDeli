@@ -34,7 +34,10 @@ public class RegularTopping extends Topping{
     public double calculatePrice() {
         return 0.0;
     }
-
+    @Override
+    public String toString() {
+        return getName() + " (" + getType() + ")";
+    }
     public static List<RegularTopping> getRegularToppings(){
         return regularToppings;
     }

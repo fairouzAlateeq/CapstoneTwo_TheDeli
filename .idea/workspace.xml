@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="984c1287-d9de-4bf4-ad19-db3499686f14" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/receipt-20241113-150945.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-150945.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/receipt-20241113-151108.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-151108.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/receipt-20241113-151643.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-151643.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/receipt-20241113-151816.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts/receipt-20241113-151816.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/receipt-20241114-084230.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts/receipt-20241114-084230.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/receipt-20241114-084609.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts/receipt-20241114-084609.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Chips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/classes/Sandwich.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

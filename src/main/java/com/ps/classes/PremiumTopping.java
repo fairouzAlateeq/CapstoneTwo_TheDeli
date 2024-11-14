@@ -72,6 +72,10 @@ public class PremiumTopping extends Topping{
         }
     }
 
+    @Override
+    public String toString() {
+        return getName() + " (" + getType() + ")";
+    }
     public static List<PremiumTopping> getPremiumToppings(){
         return premiumToppings;
     }
