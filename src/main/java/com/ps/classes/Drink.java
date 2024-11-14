@@ -44,8 +44,15 @@ public class Drink implements Product{
         this.size = size;
     }
 
+
+
     public flavors getFlavor() {
         return flavor;
+    }
+
+    @Override
+    public String toString() {
+        return getFlavor().toString();
     }
 
     public void setFlavor(flavors flavor) {

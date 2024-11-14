@@ -1,0 +1,17 @@
+Order Date: 2024-11-14 10:40:40
+Customer Name: Don
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WHITE
+  Toppings: Ketchup
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+Drinks:
+ - 3 LEMON
+Chips:
+ - KETTLE
+--------------------------
+Total Price: $10.00

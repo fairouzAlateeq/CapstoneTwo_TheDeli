@@ -26,6 +26,10 @@ public class Chips implements Product {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return getChipsType().toString();
+    }
     public Chips.Types getChipsType() {
         return type;
     }

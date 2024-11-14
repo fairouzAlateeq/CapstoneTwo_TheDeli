@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+
+    public static final String RESET = "\u001B[0m";
     // variables
     private static LocalDateTime currentDateTime;
     private static String name;
@@ -124,10 +126,10 @@ public class UserInterface {
                 if (toppingCommand == 1) {
                     inputScanner.nextLine();
                     for(Topping topping: PremiumTopping.getPremiumToppings()) {
-                        System.out.println(topping.toString() + "/Premium");
+                        System.out.println(topping.toString() + "\u001B[35m" + "/Premium" + RESET);
                     }
                     for(Topping topping:RegularTopping.getRegularToppings()){
-                        System.out.println(topping.toString() + "/Regular");
+                        System.out.println(topping.toString() + "\u001B[32m" + "/Regular" +RESET);
                     }
                     System.out.println("Enter topping name:");
 
@@ -312,7 +314,7 @@ public class UserInterface {
                 }
             }
 
-            String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
+            String toasted = sandwich.isToasted() ? "\u001B[33m" + "Toasted" + RESET : "Not Toasted";
             System.out.println("Toasting: " + toasted);
 
             sandwichNumber++;
@@ -323,27 +325,31 @@ public class UserInterface {
         }
 
         // Add drinks price to total
+        System.out.println("Drinks: ");
         for (Drink drink : drinks) {
             totalPrice += drink.calculatePrice();
+            System.out.println(drink.toString());
             System.out.println("total price after drinks: " + totalPrice);
         }
 
         // Add chips price to total
+        System.out.println("Chips: ");
         for (Chips bagOfChips : chips) {
             totalPrice += bagOfChips.calculatePrice();
+            System.out.println(bagOfChips.getChipsType().toString());
             System.out.println("total price after chips: " + totalPrice);
         }
 
         System.out.println("Your total is: $" + totalPrice);
-
-        System.out.println("confirm? 1. yes 2. no");
+        System.out.println("name: " + "\u001B[34;1m" + name + RESET);
+        System.out.println("CONFIRM? 1. yes 2. no");
         int confirmChoice = commandScanner.nextInt();
         if (confirmChoice == 1) {
             System.out.println("Thank you for choosing our Deli! See you next time!");
         order = new Order(name, sandwiches, chips, drinks);
         Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
         FileManager.saveReceipt(receipt);
-        } else System.out.println("Canceling...");
+        } else System.out.println("\u001B[91m" + "Canceling..." + RESET);
 
 
         System.exit(0);
