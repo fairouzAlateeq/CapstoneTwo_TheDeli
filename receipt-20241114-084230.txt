@@ -1,0 +1,13 @@
+Order Date: 2024-11-14 08:42:30
+Customer Name: fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Mayo
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+--------------------------
+Total Price: $5.00

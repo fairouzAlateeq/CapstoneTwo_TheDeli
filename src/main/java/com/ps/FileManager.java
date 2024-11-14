@@ -16,15 +16,15 @@ public class FileManager {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
         // to save it in the  Receitpts folder
-        String directoryPath = "CapstoneTwo_TheDeli/Receipts/";
+        String directoryName = "Receipts";
         String fileName = "receipt-" + receipt.getOrderDate().format(formatter) + ".txt";
-        java.io.File directory = new java.io.File(directoryPath);
+        java.io.File directory = new java.io.File(directoryName);
         if (!directory.exists()) {
             directory.mkdirs();
         }
 
         // Write receipt information to file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directoryName + "/" + fileName))) {
             writer.write(receipt.formatReceipt());
             writer.flush();
         } catch (IOException e) {
