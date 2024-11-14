@@ -119,15 +119,16 @@ public class UserInterface {
                 System.out.println("Would you like to add a topping? 1. Yes  2. No");
                 toppingCommand = commandScanner.nextInt();
 
-                for(Topping topping: PremiumTopping.getPremiumToppings()) {
-                    System.out.println(topping.toString() + "/Premium");
-                }
-                for(Topping topping:RegularTopping.getRegularToppings()){
-                    System.out.println(topping.toString() + "/Regular");
-                }
+
 
                 if (toppingCommand == 1) {
                     inputScanner.nextLine();
+                    for(Topping topping: PremiumTopping.getPremiumToppings()) {
+                        System.out.println(topping.toString() + "/Premium");
+                    }
+                    for(Topping topping:RegularTopping.getRegularToppings()){
+                        System.out.println(topping.toString() + "/Regular");
+                    }
                     System.out.println("Enter topping name:");
 
                     String toppingChoiceName = inputScanner.nextLine();
