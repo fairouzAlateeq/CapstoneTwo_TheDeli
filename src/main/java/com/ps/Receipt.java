@@ -46,7 +46,6 @@ public class Receipt {
                 receiptText.append("  Bread Type: ").append(sandwich.getBreadType()).append("\n");
                 // for topping not return memory locations
                 // receiptText.append("  Toppings: ").append(sandwich.getTopping()).append("\n");
-
                 receiptText.append("  Toppings: ");
                 for (Topping topping : sandwich.getToppings()) {
                     receiptText.append(topping.getName()).append(", ");
@@ -61,8 +60,6 @@ public class Receipt {
                 if (hasExtraMeat) {
                     receiptText.append("  Extra Meat Price: $").append(String.format("%.2f", sandwich.getExtraMeatPrice())).append("\n");
                 }
-
-
                 boolean hasExtraCheese = sandwich.isExtraCheese();
                 receiptText.append("  Extra Cheese: ").append(hasExtraCheese ? "Yes" : "No").append("\n");
                 if (hasExtraCheese) {
@@ -72,7 +69,6 @@ public class Receipt {
                 sandwichNumber++;
             }
         }
-
         // Add drinks
         if (!drinks.isEmpty()) {
             receiptText.append("Drinks:\n");
@@ -80,7 +76,6 @@ public class Receipt {
                 receiptText.append(" - ").append(drink.getSize()).append(" ").append(drink.getFlavor()).append("\n");
             }
         }
-
         // Add chips
         if (!chips.isEmpty()) {
             receiptText.append("Chips:\n");
@@ -88,8 +83,6 @@ public class Receipt {
                 receiptText.append(" - ").append(chip.getChipsType()).append("\n");
             }
         }
-
-
         receiptText.append("--------------------------\n");
         receiptText.append("Total Price: $").append(String.format("%.2f", totalPrice)).append("\n");
         return receiptText.toString();

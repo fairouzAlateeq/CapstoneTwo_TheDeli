@@ -60,3 +60,12 @@ The Deli Order Management System is a Java-based console application that simula
 - Finish the order and Enter your name and view your oder details
 
   ![Finish Order](CodeSS/FinishOrder.png)
+
+## Most interesting piece of code: 
+
+- As an extra challenge for myself I decided to build a Receipt class that helps centralize my receipt's
+  information alongside it's formatting:
+
+![Receipt info - sandwich](CodeSS/ReceiptOne.png)
+
+![Receipt info - drinks&chips](CodeSS/ReceiptTwo.png)
