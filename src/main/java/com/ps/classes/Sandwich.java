@@ -14,8 +14,6 @@ public class Sandwich implements Product{
     private double price;
 
     int size;
-
-
     public enum BreadTypes {
         WHITE, WHEAT, RYE, WRAP
     }
@@ -23,8 +21,9 @@ public class Sandwich implements Product{
     public enum Size {
         SMALL, MEDIUM, LARGE;
     }
+
+
     private Sandwich.BreadTypes breadType;
-    // Other fields and methods
 
     public Sandwich.BreadTypes getBreadType() {
         return breadType;

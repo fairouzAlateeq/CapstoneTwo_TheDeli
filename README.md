@@ -57,9 +57,13 @@ The Deli Order Management System is a Java-based console application that simula
   ![Drink Info](CodeSS/DrinkInfo.png)
 
 - Add as many drinks as you want then go back to the main menu
-- Finish the order and Enter your name and view your oder details
+- Finish the order and Enter your name to view your oder details
 
   ![Finish Order](CodeSS/FinishOrder.png)
+
+- Confirm or Cancel: Confirming will add your order and create your receipt and canceling will finish. 
+
+  ![Cancel Order](CodeSS/CancelOrder.png)
 
 ## Most interesting piece of code: 
 

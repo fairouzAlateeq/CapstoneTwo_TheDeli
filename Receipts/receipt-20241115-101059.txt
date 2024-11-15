@@ -1,0 +1,25 @@
+Order Date: 2024-11-15 10:10:59
+Customer Name: Fai
+------ Order Details ------
+Sandwiches:
+ Sandwich 1:
+  Size: 4
+  Bread Type: WRAP
+  Toppings: Chicken, Bacon, Lettuce, Mayo, Mustard
+  Extra Meat: No
+  Extra Cheese: No
+  Toasted: Yes
+ Sandwich 2:
+  Size: 8
+  Bread Type: WHITE
+  Toppings: Steak, Lettuce, Ranch
+  Extra Meat: Yes
+  Extra Meat Price: $0.00
+  Extra Cheese: No
+  Toasted: No
+Drinks:
+ - 3 LEMON
+Chips:
+ - KETTLE
+--------------------------
+Total Price: $22.50
