@@ -215,33 +215,7 @@ public class UserInterface {
 
     }
 
-//    private static void processAddChips(){
-//        String chipsChoice;
-//        int chipsCommand;
-//        do{
-//            System.out.println("What chips do you want? ");
-//            for (Chips.Types type : Chips.Types.values()){
-//                System.out.println(type);
-//            }
-//            chipsChoice = inputScanner.nextLine().trim().toUpperCase();
-//            Chips chipsBag = new Chips(Chips.Types.valueOf(chipsChoice));
-//
-//            System.out.println("Another one? 1.yes 2.no");
-//            chipsCommand = commandScanner.nextInt();
-//            switch (chipsCommand){
-//                case 1:
-//                    processAddChips();
-//                    break;
-//                case 2:
-//                    processStartAnOrder();
-//                    break;
-//                default:
-//                    System.out.println(" 1 or 2 only. ");
-//            }
-//        }
-//        while(chipsCommand != 2);
-//
-//    }
+
     private static void processAddChips(){
     String chipsChoice;
     int chipsCommand;
@@ -272,7 +246,7 @@ public class UserInterface {
     while(chipsCommand != 2);
 }
 
-// currently
+
     private static void processDisplayToppings(){
         for(Topping topping: PremiumTopping.getPremiumToppings()) {
             System.out.println(topping.toString() + "\u001B[35m" + "/Premium" + RESET);
@@ -316,7 +290,7 @@ public class UserInterface {
 
             // Add sandwich price to total
             totalPrice += sandwich.calculatePrice();
-            System.out.println("total price after sandwich: " + totalPrice);
+            //System.out.println("total price after sandwich: " + totalPrice);
         }
 
         // Add drinks price to total
@@ -324,7 +298,7 @@ public class UserInterface {
         for (Drink drink : drinks) {
             totalPrice += drink.calculatePrice();
             System.out.println(drink.toString());
-            System.out.println("total price after drinks: " + totalPrice);
+           // System.out.println("total price after drinks: " + totalPrice);
         }
 
         // Add chips price to total
@@ -332,7 +306,7 @@ public class UserInterface {
         for (Chips bagOfChips : chips) {
             totalPrice += bagOfChips.calculatePrice();
             System.out.println(bagOfChips.getChipsType().toString());
-            System.out.println("total price after chips: " + totalPrice);
+          //  System.out.println("total price after chips: " + totalPrice);
         }
 
         System.out.println("Your total is: $" + totalPrice);
@@ -346,6 +320,7 @@ public class UserInterface {
         FileManager.saveReceipt(receipt);
         } else System.out.println("\u001B[91m" + "Canceling..." + RESET);
 
+// to exit and not ask for name or sandwich info again
 
         System.exit(0);
     }
