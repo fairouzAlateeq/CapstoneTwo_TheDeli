@@ -125,12 +125,7 @@ public class UserInterface {
 
                 if (toppingCommand == 1) {
                     inputScanner.nextLine();
-                    for(Topping topping: PremiumTopping.getPremiumToppings()) {
-                        System.out.println(topping.toString() + "\u001B[35m" + "/Premium" + RESET);
-                    }
-                    for(Topping topping:RegularTopping.getRegularToppings()){
-                        System.out.println(topping.toString() + "\u001B[32m" + "/Regular" +RESET);
-                    }
+                    processDisplayToppings();
                     System.out.println("Enter topping name:");
 
                     String toppingChoiceName = inputScanner.nextLine();
@@ -276,14 +271,14 @@ public class UserInterface {
     }
     while(chipsCommand != 2);
 }
+
+// currently
     private static void processDisplayToppings(){
-        System.out.println("Premium Toppings:");
-        for (PremiumTopping topping : PremiumTopping.getPremiumToppings()) {
-            System.out.println(topping.getName());
+        for(Topping topping: PremiumTopping.getPremiumToppings()) {
+            System.out.println(topping.toString() + "\u001B[35m" + "/Premium" + RESET);
         }
-        System.out.println("\nRegular Toppings:");
-        for (RegularTopping topping : RegularTopping.getRegularToppings()) {
-            System.out.println(topping.getName());
+        for(Topping topping:RegularTopping.getRegularToppings()){
+            System.out.println(topping.toString() + "\u001B[32m" + "/Regular" +RESET);
         }
     }
 
@@ -354,63 +349,16 @@ public class UserInterface {
 
         System.exit(0);
     }
-//    private static void processFinishTheOrder() {
-//        // Reset totalPrice to zero before recalculating
-//        totalPrice = 0.0;
-//
-//        System.out.println("What's your name? ");
-//        name = inputScanner.nextLine();
-//
-//        currentDateTime = LocalDateTime.now();
-//        System.out.println("Your order details: ");
-//        System.out.println(currentDateTime);
-//        System.out.println("Your sandwiches: ");
-//        int sandwichNumber = 1;
-//        for (Sandwich sandwich : sandwiches) {
-//            System.out.println("\nSandwich " + sandwichNumber + ":");
-//            System.out.println("Size: " + sandwich.getSize());
-//            System.out.println("Bread type: " + sandwich.getBreadType());
-//
-//            List<Topping> toppings = sandwich.getTopping();
-//            if (toppings.isEmpty()) {
-//                System.out.println("No toppings added.");
-//            } else {
-//                for (Topping topping : toppings) {
-//                    System.out.println("- " + topping.getName());
-//                }
-//            }
-//
-//            String toasted = sandwich.isToasted() ? "Toasted" : "Not Toasted";
-//            System.out.println("Toasting: " + toasted);
-//
-//            sandwichNumber++;
-//
-//        }
-//    // Calculate the total price once
-//    for (Sandwich sandwich : sandwiches) {
-//        totalPrice += sandwich.calculatePrice();
-//    }
-//    for (Drink drink : drinks) {
-//        totalPrice += drink.calculatePrice();
-//    }
-//    for (Chips bagOfChips : chips) {
-//        totalPrice += bagOfChips.calculatePrice();
-//    }
-//
-//    System.out.println("Your total is: $" + totalPrice);
-//
-//    order = new Order(name, sandwiches, chips, drinks);
-//    Receipt receipt = new Receipt(name, currentDateTime, sandwiches, drinks, chips, totalPrice);
-//    FileManager.saveReceipt(receipt);
-//        System.exit(0);
-//}
 
+// to get breadTypes from the Sandwich class
     public static void processDispalyBreadTypes(){
         for (Sandwich.BreadTypes bread : Sandwich.BreadTypes.values()) {
             System.out.println(bread);
         }
 
     }
+
+// gets topping to see if its premuim or not
     private static Topping findToppingByName(String name) {
         for (PremiumTopping premiumTopping : PremiumTopping.getPremiumToppings()) {
             if (premiumTopping.getName().equalsIgnoreCase(name)) {
